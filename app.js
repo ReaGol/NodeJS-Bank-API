@@ -9,8 +9,8 @@ const app = express();
 app.use(express.json());
 const server = http.createServer((req, res) => {});
 
-app.get("/users", (req, res) => {
-  const users = getUsers();
+app.get("/api/users", (req, res) => {
+  const users = getAllUsers();
   res.send(users);
 });
 
