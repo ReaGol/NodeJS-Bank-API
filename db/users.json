@@ -1,16 +1,1 @@
-[
-  {
-    "id": "540ftp",
-    "cash": 100,
-    "credit": 2000,
-    "firstName": "reut",
-    "lastName": "goldin"
-  },
-  {
-    "id": "abc123",
-    "cash": 20000,
-    "credit": 30000,
-    "firstName": "andre",
-    "lastName": "katov"
-  }
-]
+[{"id":"540ftp","cash":100,"credit":2000,"firstName":"reut","lastName":"goldin"},{"id":"abc123","cash":20000,"credit":30000,"firstName":"andre","lastName":"katov"},{"id":"98dnvfj","cash":12987,"credit":60393},{},{},{"id":"cnjd878","cash":12987,"credit":60393},{},"User exist",{"id":"cnjd8trt78","cash":12987,"credit":60393},{"id":"ct78","cash":12987,"credit":60393},{"id":"ct78345678","cash":12987,"credit":60393}]

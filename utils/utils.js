@@ -1,7 +1,6 @@
 import path from "path";
 import { fileURLToPath } from "url";
-import fs from "fs"
-
+import fs from "fs";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const jsonDirPath = path.join(__dirname, "../db");
@@ -15,24 +14,37 @@ export const loadUsers = () => {
 };
 
 export const findUser = (id) => {
-    const users = loadUsers();
-    return users.find((user) => user.id === id) 
-}
+  const users = loadUsers();
+  return users.find((user) => user.id === id);
+};
 
-
-
-export const saveUserData = (data) => {
-    try {
-          const stringifyData = JSON.stringify(data);
-          fs.writeFileSync(dataPath, stringifyData);
-    } catch (error) {
-        return []
-    }
+export const createUser = ({ cash, credit, id }) => {
+  const users = loadUsers();
+  function isDuplicated(id, users) {
+    return Boolean(users.find((user) => user.id === id));
+  }
+  if (isDuplicated(id, users)) {
+   return false
+  }
+    //user has cash and credit over 0
+    const user = { id, cash, credit };
+    users.push(user);
+    saveUserData(users);
+    return user;
+  
 
 };
 
-export const func = (amount, id) => {
-    const user = findUser()
-    user.credit = amount;
+export const saveUserData = (data) => {
+  try {
+    const stringifyData = JSON.stringify(data);
+    fs.writeFileSync(dataPath, stringifyData);
+  } catch (error) {
+    return [];
+  }
+};
 
-}
+export const func = (amount, id) => {
+  const user = findUser();
+  user.credit = amount;
+};
