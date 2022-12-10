@@ -1,14 +1,11 @@
-import express from "express";
 import { Router } from "express";
-import { controller } from ('./controllers/controller.js')
+import { addNewUser, getAllUsers, getUserById, updateCredit } from "../controllers/controller.js";
 export const router = Router();
 
 
-router.get()
-router.post()
-
+router.get('/users',getAllUsers)
+router.post('/users', addNewUser)
 //by ID
-router.get()
-router.post()
-router.put()
-router.delete()
+router.get('/users/:userId', getUserById)
+router.put('/users/:userId/credit', updateCredit)
+

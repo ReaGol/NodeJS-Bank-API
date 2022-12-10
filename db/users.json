@@ -1,0 +1,16 @@
+[
+  {
+    "id": "540ftp",
+    "cash": 100,
+    "credit": 2000,
+    "firstName": "reut",
+    "lastName": "goldin"
+  },
+  {
+    "id": "abc123",
+    "cash": 20000,
+    "credit": 30000,
+    "firstName": "andre",
+    "lastName": "katov"
+  }
+]

@@ -1,20 +1,17 @@
 import express from "express";
-import fs from "fs";
-import http from "http";
-import { dataPath, getUsers, createUser } from "./utils.js";
+import { router } from "./routes/router.js";
+import { loadUsers } from "./utils/utils.js";
 
-const PORT = "8000";
+
+
+const PORT = 8000;
 const HOST = "localhost";
+
 const app = express();
 app.use(express.json());
-const server = http.createServer((req, res) => {});
 
-app.get("/api/users", (req, res) => {
-  const users = getAllUsers();
-  res.send(users);
-});
-
-
+app.use("/api", router);
+console.log(loadUsers())
 
 app.listen(8000, () => {
   console.log("listening on port 8000");
