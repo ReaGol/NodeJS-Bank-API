@@ -15,26 +15,27 @@ export const loadUsers = () => {
 
 export const findUser = (id) => {
   const users = loadUsers();
-  return users.find((user) => user.id === id);
+  let user = users.find((user) => user.id === id);
+  console.log(user, 2);
+  return user;
 };
 
-export const createUser = ({ cash, credit, id }) => {
+export const createUser = ({ cash, credit, id, firstName, lastName }) => {
   const users = loadUsers();
   function isDuplicated(id, users) {
     return Boolean(users.find((user) => user.id === id));
   }
   if (isDuplicated(id, users)) {
-   return false
+    return false;
   }
-    //user has cash and credit over 0
-    const user = { id, cash, credit };
+  //if user has cash and credit over 0
+  if (cash + credit >= 0) {
+    const user = { id, cash, credit, firstName, lastName };
     users.push(user);
     saveUserData(users);
     return user;
-  
-
-};
-
+  }
+}
 export const saveUserData = (data) => {
   try {
     const stringifyData = JSON.stringify(data);
@@ -45,6 +46,7 @@ export const saveUserData = (data) => {
 };
 
 export const func = (amount, id) => {
-  const user = findUser();
+  const user = findUser(id);
   user.credit = amount;
+  console.log(amount, 3);
 };
